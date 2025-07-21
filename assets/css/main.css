@@ -55,11 +55,6 @@ body {
             background-color: var(--accent-color, #ff0059);
             color: var(--text-color, #ffffff);
         }
-
-        &:active {
-            background-color: var(--accent-color, #ff0059);
-            color: var(--text-color, #ffffff);
-        }
     }
 
     a:is([href="/"]) {
@@ -97,9 +92,12 @@ body {
 
                 text-decoration: none;
 
-                h1 {
+                &>span {
                     display: flex;
                     flex-direction: column;
+                    font-size: var(--big-text-size, 2.5rem);
+                    font-weight: var(--big-text-style, bold);
+                    line-height: var(--big-line-height, 1);
                 }
             }
 
@@ -196,11 +194,14 @@ body {
 
                 a {
                     text-decoration: none;
-                    ;
                 }
             }
         }
     }
+}
+
+h1 {
+    font-size: 2.5rem;
 }
 
 h1,
@@ -212,12 +213,27 @@ h3 {
     line-height: var(--big-line-height, 1);
 }
 
-/* Selecting h1s for best practices */
-article h1,
-aside h1,
+h4 {
+    font-weight: bold;
+    margin: 1rem 0;
+
+    &::before {
+        content: "•-> ";
+        color: var(--primary-color, #baffe7);
+    }
+
+    &::after {
+        content: " <-•";
+        color: var(--primary-color, #baffe7);
+    }
+}
+
+/* Ensure h1 inside nav, section, article, aside has a consistent font size */
 nav h1,
-section h1 {
-    font-size: var(--big-text-size, 2.5rem);
+section h1,
+article h1,
+aside h1 {
+    font-size: 2.5rem;
 }
 
 li {
@@ -259,6 +275,23 @@ ol ol {
     animation-name: profileCard;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
+}
+
+.wishlist {
+    list-style: none;
+
+    li a {
+        transition: background-color 1s ease-in, color 1s ease-in;
+        background-color: transparent;
+        color: var(--primary-color, #baffe7);
+        display: block;
+
+        &:hover {
+            transition: background-color 0.1s ease-out, color 0.1s ease-out;
+            background-color: var(--accent-color, #ff0059);
+            color: var(--text-color, #ffffff);
+        }
+    }
 }
 
 @keyframes profileCard {
@@ -304,11 +337,6 @@ ol ol {
 
 @media screen and (max-width: 1200px) {
     body {
-
-        /* grid-template-columns: 1fr;
-        grid-template-areas:
-            "header"
-            "main"; */
         &>main {
             &>div {
                 width: 100%;
@@ -333,7 +361,7 @@ ol ol {
 @media screen and (max-width: 768px) {
     :root {
         --big-text-size: 2rem;
-        --small-text-size: 1rem;
+        --small-text-size: 1.1rem;
         --small-line-height: 2;
     }
 
@@ -388,10 +416,14 @@ ol ol {
             }
         }
 
-        main {
+        &>main {
             main-header hgroup {
                 display: flex;
                 flex-direction: column;
+            }
+
+            &>div {
+                padding: 1rem;
             }
         }
     }
