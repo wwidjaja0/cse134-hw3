@@ -3,6 +3,7 @@
     src: url("../fonts/DMSans-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 :root {
@@ -45,7 +46,7 @@ body {
     color: var(--text-color, #ffffff);
     text-shadow: var(--text-shadow, 2px 2px 5px rgb(68, 255, 189));
 
-    a:not([href="/"]) {
+    a:not([id="brand"]) {
         transition: background-color 1s ease-in, color 1s ease-in;
         background-color: transparent;
         color: var(--primary-color, #baffe7);
@@ -57,7 +58,7 @@ body {
         }
     }
 
-    a:is([href="/"]) {
+    a:is([id="brand"]) {
         color: var(--text-color, #ffffff);
 
         img {

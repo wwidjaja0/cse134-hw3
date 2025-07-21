@@ -38,13 +38,19 @@
 
         <link rel="stylesheet" href="assets/css/main.css" media="screen">
         <link rel="manifest" href="assets/icons/site.webmanifest">
+        <style>
+            /* to avoid "Default styles for h1 elements are changing" */
+            h1 {
+                font-size: 2.5rem;
+            }
+        </style>
     </head>
     <body>
         <header>
             <nav>
                 <top-nav>
-                    <a href="/">
-                        <img src="favicon.ico" alt="Widjaja's Logo" width="48px"
+                    <a id="brand" href="/">
+                        <img src="/favicon.ico" alt="Widjaja's Logo" width="48px"
                             height="48px">
                         <h1 hidden>William Widjaja</h1>
                         <span><span>William</span> Widjaja</span>
